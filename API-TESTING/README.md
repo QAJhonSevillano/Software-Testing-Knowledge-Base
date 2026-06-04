@@ -26,12 +26,12 @@ Para observar el llamado a las APIS desde el navegador de preferencia , y realiz
 Solicita el username y el password para consumir el Servicio de Autenticación.
 
 <p align="center">
-  <img src="../assets/postman/APIS-0002.png" width="500">
+  <img src="../assets/postman/APIS-0002.png" width="750">
 </p> 
 
 - ### API Key: ### 
 Se tiene que generar la API Key en la página dueña del API, para poder hacer el consumo del Servicio de autenticación.
 
 <p align="center">
-  <img src="../assets/postman/APIS-0003.png" width="500">
+  <img src="../assets/postman/APIS-0003.png" width="750">
 </p> 
