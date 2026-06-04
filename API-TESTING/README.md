@@ -1,5 +1,5 @@
 <h1 align="center">
-CONOCIMIENTOS APRENDIDOS RELACIONADOS AL CONSUMO DE API'S
+CONOCIMIENTOS APRENDIDOS RELACIONADOS AL CONSUMO DE API
 </h1>
 
 ## 🔹 API'S DE PRUEBAS PARA PRÁCTICAS
@@ -25,5 +25,13 @@ Para observar el llamado a las APIS desde el navegador de preferencia , y realiz
 - ### Autenticación Básica: (Basic Auth) ###
 Solicita el username y el password para consumir el Servicio de Autenticación.
 
--- ### API Key: ### 
+<p align="center">
+  <img src="../assets/postman/APIS-0002.png" width="500">
+</p> 
+
+- ### API Key: ### 
 Se tiene que generar la API Key en la página dueña del API, para poder hacer el consumo del Servicio de autenticación.
+
+<p align="center">
+  <img src="../assets/postman/APIS-0003.png" width="500">
+</p> 
