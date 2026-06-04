@@ -10,5 +10,5 @@ Para observar el llamado a las APIS desde el navegador de preferencia , y realiz
 3. En la sección de Network, marcamos la opción Fetch/XHR, y cada vez que vayamos realizando acciones en el navehador, aquí se mostrará el llamado que se realiza a las diferentes API's.
 
 <p align="center">
-  <img src="assets/postman/APIS-0001.png" width="900">
+  <img src="../assets/postman/APIS-0001.png" width="900">
 </p>  
