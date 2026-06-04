@@ -35,3 +35,11 @@ Se tiene que generar la API Key en la página dueña del API, para poder hacer e
 <p align="center">
   <img src="../assets/postman/APIS-0003.png" width="750">
 </p> 
+
+- ### Bearer Token: ###
+Primero se realiza el consumo de un servicio en método POST, con los datos de username y password, y en la respuesta del servicio se genera un accessToken, el cual se debe asignar en la autenticación de los servicios privados.
+
+<p align="center">
+  <img src="../assets/postman/APIS-0004.png" width="750">
+  <img src="../assets/postman/APIS-0005.png" width="750">
+</p> 
