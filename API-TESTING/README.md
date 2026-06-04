@@ -1,5 +1,5 @@
 <h1 align="center">
-CONOCIMIENTOS APRENDIDOS RELACIONADOS A LOS CONSUMOS DE API's
+CONOCIMIENTOS APRENDIDOS RELACIONADOS AL CONSUMO DE API'S
 </h1>
 
 ## 🔹 OPCIONES DE CONSOLA DEL NAVEGADOR
@@ -12,3 +12,10 @@ Para observar el llamado a las APIS desde el navegador de preferencia , y realiz
 <p align="center">
   <img src="../assets/postman/APIS-0001.png" width="900">
 </p>  
+
+## 🔹 API'S DE PRUEBAS PARA PRÁCTICAS
+
+- https://petstore.swagger.io/
+- https://buggy.justtestit.org/
+- https://futbol1.geekqa.net
+- https://student.geekqa.net/api/students/ (REQUIERE BearerToken)
