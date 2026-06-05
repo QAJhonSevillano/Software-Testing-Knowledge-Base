@@ -7,7 +7,7 @@ CONOCIMIENTOS APRENDIDOS RELACIONADOS AL CONSUMO DE API
 - https://petstore.swagger.io/
 - https://buggy.justtestit.org/
 - https://futbol1.geekqa.net
-- https://student.geekqa.net/api/students/ (REQUIERE BearerToken)
+- https://student.geekqa.net/api/students/ (REQUIERE BearerToken | **email:** geekqa@test.com **password:** geekqa2025)
 
 ## 🔹 OPCIONES DE CONSOLA DEL NAVEGADOR
 
