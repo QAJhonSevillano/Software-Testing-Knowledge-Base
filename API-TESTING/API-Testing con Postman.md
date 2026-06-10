@@ -2,14 +2,14 @@
 CONOCIMIENTOS APRENDIDOS RELACIONADOS AL CONSUMO DE API
 </h1>
 
-## 🔹 API'S DE PRUEBAS PARA PRÁCTICAS
+## 📌 API'S DE PRUEBAS PARA PRÁCTICAS
 
 - https://petstore.swagger.io/
 - https://buggy.justtestit.org/
 - https://futbol1.geekqa.net
 - https://student.geekqa.net/api/students/ (REQUIERE BearerToken | **email:** geekqa@test.com **password:** geekqa2025)
 
-## 🔹 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
+## 🎓 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
 <p align="center">
   <img src="../assets/postman/APIS-0000.png" width="1000">
 </p> 
@@ -25,7 +25,7 @@ Para observar el llamado a las APIS desde el navegador de preferencia , y realiz
   <img src="../assets/postman/APIS-0001.png" width="900">
 </p>  
 
-## 🔹 MÉTODOS DE AUTENTICACIÓN MAS UTILIZADOS
+## 🔑 MÉTODOS DE AUTENTICACIÓN MAS UTILIZADOS
 
 - ### Autenticación Básica: (Basic Auth) ###
 Solicita el username y el password para consumir el Servicio de Autenticación.
