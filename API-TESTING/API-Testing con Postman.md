@@ -9,6 +9,9 @@ CONOCIMIENTOS APRENDIDOS RELACIONADOS AL CONSUMO DE API
 - https://futbol1.geekqa.net
 - https://student.geekqa.net/api/students/ (REQUIERE BearerToken | **email:** geekqa@test.com **password:** geekqa2025)
 
+## 🔹 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
+
+
 ## 🔹 OPCIONES DE CONSOLA DEL NAVEGADOR
 
 Para observar el llamado a las APIS desde el navegador de preferencia , y realizamos los siguientes pasos:
