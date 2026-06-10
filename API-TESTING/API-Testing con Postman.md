@@ -10,7 +10,9 @@ CONOCIMIENTOS APRENDIDOS RELACIONADOS AL CONSUMO DE API
 - https://student.geekqa.net/api/students/ (REQUIERE BearerToken | **email:** geekqa@test.com **password:** geekqa2025)
 
 ## 🔹 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
-
+<p align="center">
+  <img src="../assets/postman/APIS-0000.png" width="1000">
+</p> 
 
 ## 🔹 OPCIONES DE CONSOLA DEL NAVEGADOR
 
