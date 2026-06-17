@@ -4,7 +4,7 @@ CONOCIMIENTOS APRENDIDOS RELACIONADOS AL CONSUMO DE API
 
 ## 🎓 CERTIFICACIONES
 <p align="center">
-  <img src="../assets/postman/APIS-0006.png" width="1000">
+  <img src="../assets/postman/APIS-0006.png" width="500">
 </p> 
 
 ## 📌 API'S DE PRUEBAS PARA PRÁCTICAS
