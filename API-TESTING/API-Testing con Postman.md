@@ -100,3 +100,11 @@ pm.test(`El código de respuesta HTTP es ${EXPECTED_STATUS_CODE}`, () => {
     pm.response.to.have.status(EXPECTED_STATUS_CODE);
 });
 ```
+
+### Validación del mensaje esperado: ###
+```javascript
+const jsonData = pm.response.json();
+pm.test("El mensaje esperado es el correcto", function () {    
+    pm.expect(jsonData.message).to.eql("Equipo no encontrado");
+});
+```
