@@ -92,3 +92,11 @@ pm.test(`El tiempo de respuesta es menor a ${MAX_RESPONSE_TIME_MS}ms`, () => {
     pm.expect(pm.response.responseTime).to.be.below(MAX_RESPONSE_TIME_MS);
 });
 ```
+
+### Validación del código de respuesta: ###
+```javascript
+const EXPECTED_STATUS_CODE = 200;
+pm.test(`El código de respuesta HTTP es ${EXPECTED_STATUS_CODE}`, () => {
+    pm.response.to.have.status(EXPECTED_STATUS_CODE);
+});
+```
