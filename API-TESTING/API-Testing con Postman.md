@@ -58,14 +58,12 @@ Primero se realiza el consumo de un servicio en método POST, con los datos de u
 FLUJO DE AUTOMATIZACIÓN DE API
 </h1>
 
-<h3>
-:desktop_computer: Obtener token, y pasarlo como una variable 
-</h3>
+1. Creamos una variable de colección, donde almacenaremos el token que nos responde el consumo del servicio de autenticación.
 <p align="center">
-  <img src="../assets/postman/APIS-0007.png" width="750">
-</p> 
+  <img src="../assets/postman/APIS-0008.png" width="500">
+</p>
 
-En la opcion de Scripts, sección Post-response, programamos el siguiente Javascript.
+2. En la opcion de Scripts, sección Post-response, programamos el siguiente Javascript.
 ```javascript
 const jsonData = pm.response.json();
 if (jsonData.access_token && jsonData.access_token.length > 0) {
@@ -73,3 +71,8 @@ if (jsonData.access_token && jsonData.access_token.length > 0) {
     console.log("Token almacenado correctamente en la variable de colección 'token'");
 }
 ```
+
+3. Consumimos el servicio de autenticación, y automáticamente se tomara el access_token de la respuesta, y lo almacenará en la Variable de colección creada.
+<p align="center">
+  <img src="../assets/postman/APIS-0007.png" width="750">
+</p> 
