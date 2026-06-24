@@ -58,6 +58,7 @@ Primero se realiza el consumo de un servicio en método POST, con los datos de u
 FLUJO DE AUTOMATIZACIÓN DE API
 </h1>
 
+- ### PROCESO DE AUTENTICACIÓN: ### 
 1. Creamos una variable de colección, donde almacenaremos el token que nos responde el consumo del servicio de autenticación.
 <p align="center">
   <img src="../assets/postman/APIS-0008.png" width="500">
