@@ -55,5 +55,5 @@ Primero se realiza el consumo de un servicio en método POST, con los datos de u
 </p> 
 
 <h1 align="center">
-F L U J O     D E     A U T O M A T I Z A C I Ó N     D E    A P I
+FLUJO DE AUTOMATIZACIÓN DE API
 </h1>
