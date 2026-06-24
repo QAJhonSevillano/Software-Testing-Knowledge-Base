@@ -73,7 +73,22 @@ if (jsonData.access_token && jsonData.access_token.length > 0) {
 }
 ```
 
-3. Consumimos el servicio de autenticación, y automáticamente se tomara el access_token de la respuesta, y lo almacenará en la Variable de colección creada.
+3. Consumimos el servicio de autenticación, y automáticamente se tomará el access_token de la respuesta, y lo almacenará en la Variable de colección creada.
 <p align="center">
   <img src="../assets/postman/APIS-0007.png" width="750">
 </p> 
+
+- ### 2. PROGRAMACIÓN DE SCRIPTS, PARA VALIDAR LOS DATOS DE LA RESPUESTA OBTENIDA: ###
+1. En la opcion de Scripts, sección Post-response, programamos los diferentes Scripts que deseamos validar según la respuesta obtenida.
+<p align="center">
+  <img src="../assets/postman/APIS-0009.png" width="500">
+</p>  
+
+2. EJEMPLOS DE SCRIPTS QUE PODEMOS VALIDAR SEGÚN LA RESPUESTA DEL SERVICIO.
+### Validación de tiempo de respuesta: ###
+```javascript
+const MAX_RESPONSE_TIME_MS  = 3000;
+pm.test(`El tiempo de respuesta es menor a ${MAX_RESPONSE_TIME_MS}ms`, () => {
+    pm.expect(pm.response.responseTime).to.be.below(MAX_RESPONSE_TIME_MS);
+});
+```
