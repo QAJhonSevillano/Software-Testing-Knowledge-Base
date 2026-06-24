@@ -57,3 +57,10 @@ Primero se realiza el consumo de un servicio en método POST, con los datos de u
 <h1 align="center">
 FLUJO DE AUTOMATIZACIÓN DE API
 </h1>
+
+<h2 align="center">
+Obtener token, y pasarlo como una variable 
+</h2>
+<p align="center">
+  <img src="../assets/postman/APIS-0007.png" width="500">
+</p> 
