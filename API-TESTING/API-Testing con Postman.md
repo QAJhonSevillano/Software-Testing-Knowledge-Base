@@ -64,3 +64,12 @@ FLUJO DE AUTOMATIZACIÓN DE API
 <p align="center">
   <img src="../assets/postman/APIS-0007.png" width="750">
 </p> 
+
+En la opcion de Scripts, sección Post-response, programamos el siguiente Javascript.
+```javascript
+const jsonData = pm.response.json();
+if (jsonData.access_token && jsonData.access_token.length > 0) {
+    pm.collectionVariables.set("token", jsonData.access_token);
+    console.log("Token almacenado correctamente en la variable de colección 'token'");
+}
+```
