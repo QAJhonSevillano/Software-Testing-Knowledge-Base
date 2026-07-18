@@ -53,19 +53,19 @@ https://cmc86jstaling.pythonanywhere.com/
 1. Lo primero que debemos realizar es crear un nuevo proyecto tipo MAVEN en el Ide de Eclipse.
 
 <p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0002.png" width="250">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0002.png" width="400">
 </p>
 <p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0003.png" width="250">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0003.png" width="400">
 </p>
 <p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0004.png" width="250">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0004.png" width="400">
 </p>
 <p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0005.png" width="250">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0005.png" width="400">
 </p>
 <p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0006.png" width="250">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0006.png" width="400">
 </p>
 
 ## 🎓 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
