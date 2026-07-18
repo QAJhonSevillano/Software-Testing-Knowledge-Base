@@ -4,6 +4,7 @@ PASO A PASO BÁSICO PARA LA AUTOMATIZACIÓN DE UN PROYECTO, UTILIZANDO SELENIUM 
 
 ##  ESTRUCTURA BASE DEL PROYECTO, UTILIZANDO POM (PAGE OBJETC MODEL)
 
+```text
 ProyectoPrincipal/
 ├── pom.xml
 ├── serenity.properties
@@ -34,13 +35,12 @@ ProyectoPrincipal/
 │       └── resources/features/
 │           ├── usuarios/insertar-usuarios.feature
 │           └── pedidos/crear-pedido.feature 
+```
 
 ## 📌 API'S DE PRUEBAS PARA PRÁCTICAS
 
 - https://petstore.swagger.io/
-- https://buggy.justtestit.org/
-- https://futbol1.geekqa.net
-- https://student.geekqa.net/api/students/ (REQUIERE BearerToken | **email:** geekqa@test.com **password:** geekqa2025)
+
 
 ## 🎓 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
 <p align="center">
