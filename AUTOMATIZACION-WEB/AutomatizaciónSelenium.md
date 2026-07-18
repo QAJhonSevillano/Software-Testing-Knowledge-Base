@@ -74,7 +74,7 @@ https://cmc86jstaling.pythonanywhere.com/
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0007.png" width="800">
 </p>
 
-### Principales propiedades a utilizar
+### Principales Propiedades a utilizar
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0008.png" width="500">
 </p>
@@ -82,6 +82,14 @@ https://cmc86jstaling.pythonanywhere.com/
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0009.png" width="800">
 </p>
+
+### Principales Dependencias a utilizar
+Las dependencias que necesitemos utilizar en nuestro proyecto, la podemos descargar desde: https://mvnrepository.com/
+
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0010.png" width="800">
+</p>
+
 
 
 ## 🎓 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
