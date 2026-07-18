@@ -41,7 +41,7 @@ ProyectoPrincipal/
 - Todo lo que va en src/test/java es código de prueba (features, steps, runners).
 
 <p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0001.png" width="500">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0001.png" width="250">
 </p> 
 
 
