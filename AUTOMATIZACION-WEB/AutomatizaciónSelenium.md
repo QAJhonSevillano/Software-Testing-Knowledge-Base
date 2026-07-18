@@ -68,6 +68,22 @@ https://cmc86jstaling.pythonanywhere.com/
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0006.png" width="400">
 </p>
 
+2. Se procederá a realizar la configuración el archivo pom.xml, en el cual se configurarán las propiedades y dependencias que necesitemos utilizar en nuestro proyecto (Selenium, JUnit, Cucumber, Serenity, etc).
+
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0007.png" width="400">
+</p>
+
+### Principales propiedades a utilizar
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0008.png" width="400">
+</p>
+
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0009.png" width="400">
+</p>
+
+
 ## 🎓 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
 <p align="center">
   
