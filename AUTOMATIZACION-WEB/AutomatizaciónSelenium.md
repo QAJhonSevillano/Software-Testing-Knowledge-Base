@@ -71,16 +71,16 @@ https://cmc86jstaling.pythonanywhere.com/
 2. Se procederá a realizar la configuración el archivo pom.xml, en el cual se configurarán las propiedades y dependencias que necesitemos utilizar en nuestro proyecto (Selenium, JUnit, Cucumber, Serenity, etc).
 
 <p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0007.png" width="400">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0007.png" width="500">
 </p>
 
 ### Principales propiedades a utilizar
 <p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0008.png" width="400">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0008.png" width="500">
 </p>
 
 <p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0009.png" width="400">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0009.png" width="500">
 </p>
 
 
