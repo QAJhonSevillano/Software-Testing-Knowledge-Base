@@ -36,6 +36,14 @@ ProyectoPrincipal/
 │           ├── usuarios/insertar-usuarios.feature
 │           └── pedidos/crear-pedido.feature 
 ```
+## REGLA DE MAVEN:
+- Todo lo que va en src/main/java es código de producción/librería (los Page Objects, en este caso, porque son reutilizables). 
+- Todo lo que va en src/test/java es código de prueba (features, steps, runners).
+
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0000.png" width="1000">
+</p> 
+
 
 ## 📌 API'S DE PRUEBAS PARA PRÁCTICAS
 
