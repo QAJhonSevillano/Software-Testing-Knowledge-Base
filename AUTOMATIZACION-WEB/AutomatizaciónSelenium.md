@@ -11,12 +11,12 @@ ProyectoPrincipal/
 ├── src/
 │   ├── main/java/pe/tpidoweb/
 │   │   ├── driver/
-│   │   │   └── TPidoWebDriver.java        ## → Fábrica de WebDriver (Chrome/Firefox/Edge)
+│   │   │   └── TPidoWebDriver.java        → Fábrica de WebDriver (Chrome/Firefox/Edge)
 │   │   ├── menu/
-│   │   │   └── MenuPrincipal.java         ## → Page Object del menú de navegación
+│   │   │   └── MenuPrincipal.java         → Page Object del menú de navegación
 │   │   └── pagina/
 │   │       ├── base/
-│   │       │   └── PaginaBase.java        ## → Clase padre de todos los Page Objects
+│   │       │   └── PaginaBase.java        → Clase padre de todos los Page Objects
 │   │       ├── login/
 │   │       │   ├── PaginaLogin.java
 │   │       │   └── PaginaRegistro.java
@@ -25,13 +25,13 @@ ProyectoPrincipal/
 │   └── test/
 │       ├── java/pe/tpidoweb/
 │       │   ├── clientes/insertar/
-│       │   │   ├── RegistrarClientesStep.java   ## → Step Definitions
-│       │   │   └── RegistrarClientesTest.java   ## → Runner (JUnit 5 Suite)
+│       │   │   ├── RegistrarClientesStep.java   → Step Definitions
+│       │   │   └── RegistrarClientesTest.java   → Runner (JUnit 5 Suite)
 │       │   ├── pedidos/insertar/
 │       │   │   ├── RegistrarPedidosStep.java
 │       │   │   └── RegistrarPedidosTest.java
 │       │   └── suite/
-│       │       └── SuiteProductosTest.java      ## → Suite que agrupa ambos runners
+│       │       └── SuiteProductosTest.java      → Suite que agrupa ambos runners
 │       └── resources/features/
 │           ├── usuarios/insertar-usuarios.feature
 │           └── pedidos/crear-pedido.feature 
