@@ -45,10 +45,20 @@ ProyectoPrincipal/
 </p> 
 
 
-## 📌 API'S DE PRUEBAS PARA PRÁCTICAS
+## 📌 ORDEN DE CREACIÓN EL PROYECTO DESDE 0
 
-- https://petstore.swagger.io/
+### Página de pruebas a utilizar
+https://cmc86jstaling.pythonanywhere.com/
 
+1. Lo primero que debemos realizar es crear un nuevo proyecto tipo MAVEN en el Ide de Eclipse.
+
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0002.png" width="250">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0003.png" width="250">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0004.png" width="250">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0005.png" width="250">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0006.png" width="250">
+</p> 
 
 ## 🎓 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
 <p align="center">
