@@ -54,15 +54,23 @@ https://cmc86jstaling.pythonanywhere.com/
 
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0002.png" width="250">
+</p>
+<p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0003.png" width="250">
+</p>
+<p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0004.png" width="250">
+</p>
+<p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0005.png" width="250">
+</p>
+<p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0006.png" width="250">
-</p> 
+</p>
 
 ## 🎓 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
 <p align="center">
-  <img src="../assets/postman/APIS-0000.png" width="1000">
+  
 </p> 
 
 ## 🔹 OPCIONES DE CONSOLA DEL NAVEGADOR
