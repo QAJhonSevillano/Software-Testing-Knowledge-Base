@@ -324,3 +324,16 @@ private static WebDriver getEdgeDriver() {
 	return aplicarConfiguracionComun(new EdgeDriver());
 }
 ```
+
+Por último en la clase, obtenemos el driver según el navegador que vamos a utilizar
+```java
+//Obtenemos el Driver según el navegador
+public static WebDriver getDriver(Navegador navegador) {
+	if(navegador == Navegador.FIREFOX) {
+		return getFirefoxDriver();
+	}else if(navegador == Navegador.EDGE) {
+		return getEdgeDriver();
+	}
+	return getChromeDriver();
+}
+```
