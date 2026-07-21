@@ -274,9 +274,16 @@ webdriver.driver = chrome
 serenity.take.screenshot = BEFORE_AND_AFTER_EACH_STEP
 ```
 
-## 🎓 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
-<p align="center">
-  
-</p> 
+4. El siguiente paso es crear es crear la clase de la Capa del driver (WebDriver), donde se implementa como una constante estática (enum) los navegadores soportados, aplicando configuración común del navegadir (maximizar ventana, timeout implícito, etc) sin duplicar código.
 
-## 🔹 OPCIONES DE CONSOLA DEL NAVEGADOR
+Para ello creamos un paquete en el directorio src/main/java, paquete en el cual crearemos la clase de la capa del driver.
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0013.png" width="800">
+</p>
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0014.png" width="800">
+</p>
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0015.png" width="800">
+</p>
+ 
