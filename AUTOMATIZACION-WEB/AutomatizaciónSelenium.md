@@ -97,9 +97,173 @@ Las builds que necesitemos configurar en nuestro proyecto, para el tema de ejecu
 </p>
 
 Principalmente se usarán 2 builds en el proyecto base.
-1. maven-failsafe-plugin: Ejecuta las clases que matchean los patrones **/*Test.java, **/Test*.java, **/*TestSuite.java, **/When*.java durante las fases integration-test y verify. Aquí es donde realmente se disparan los runners.
+- maven-failsafe-plugin: Ejecuta las clases que matchean los patrones **/*Test.java, **/Test*.java, **/*TestSuite.java, **/When*.java durante las fases integration-test y verify. Aquí es donde realmente se disparan los runners.
 
-2. serenity-maven-plugin: genera el reporte HTML de Serenity (aggregate) en la fase post-integration-test, después de que Failsafe ejecuta las pruebas. 
+- serenity-maven-plugin: genera el reporte HTML de Serenity (aggregate) en la fase post-integration-test, después de que Failsafe ejecuta las pruebas.
+
+### Archivo pom.xml completo
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.automatedjhon.worldcup</groupId>
+  <artifactId>worldcup-web</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+  	<maven.compiler.target>21</maven.compiler.target>
+  	<maven.compiler.source>21</maven.compiler.source>
+  	<junit.version>6.1.0</junit.version>
+  	<junit-platform-suite.version>6.1.1</junit-platform-suite.version>
+  	<cucumber-junit-platform-engine.version>7.34.4</cucumber-junit-platform-engine.version>
+  	<assertj.version>3.27.7</assertj.version>
+  	<selenium.version>4.45.0</selenium.version>
+  	<serenity.version>5.3.11</serenity.version>	
+  </properties>
+  
+  <dependencies>
+  	<!-- Source: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+	<dependency>
+    	<groupId>org.junit.jupiter</groupId>
+    	<artifactId>junit-jupiter-api</artifactId>
+    	<version>${junit.version}</version>
+    	<scope>test</scope>
+	</dependency>
+	
+	<!-- Source: https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite -->
+	<dependency>
+    	<groupId>org.junit.platform</groupId>
+    	<artifactId>junit-platform-suite</artifactId>
+    	<version>${junit-platform-suite.version}</version>
+    	<scope>test</scope>
+	</dependency>
+	
+	<!-- Source: https://mvnrepository.com/artifact/io.cucumber/cucumber-junit-platform-engine -->
+	<dependency>
+    	<groupId>io.cucumber</groupId>
+    	<artifactId>cucumber-junit-platform-engine</artifactId>
+    	<version>${cucumber-junit-platform-engine.version}</version>
+    	<scope>test</scope>
+	</dependency>
+	
+	<!-- Source: https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+	<dependency>
+    	<groupId>org.assertj</groupId>
+    	<artifactId>assertj-core</artifactId>
+    	<version>${assertj.version}</version>
+    	<scope>test</scope>
+	</dependency>
+	
+	<!-- Source: https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+	<dependency>
+    	<groupId>org.seleniumhq.selenium</groupId>
+    	<artifactId>selenium-java</artifactId>
+    	<version>${selenium.version}</version>
+    	<scope>compile</scope>
+	</dependency>
+	
+	<!-- Source: https://mvnrepository.com/artifact/net.serenity-bdd/serenity-core -->
+	<dependency>
+    	<groupId>net.serenity-bdd</groupId>
+    	<artifactId>serenity-core</artifactId>
+    	<version>${serenity.version}</version>
+    	<scope>compile</scope>
+	</dependency>
+	
+	
+	<!-- DEPENDENCIAS ADICIONALES QUE FUNCIONAN CON LAS DEPENDENCIAS PRINCIPALES YA CONFIGURADAS -->
+	
+	<!-- Source: https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+	<!-- implementación simple de logging, requerida porque varias librerías (Selenium, Serenity) usan la fachada SLF4J para loguear internamente. -->
+	<dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-simple</artifactId>
+    	<version>2.0.17</version>
+    	<scope>test</scope>
+	</dependency>
+	
+	<!-- Source: https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber -->
+	<!-- el puente entre Serenity y Cucumber. Es lo que permite usar SerenityReporter como plugin de Cucumber (Se verá referenciado en las clases *Test.java) -->
+	<dependency>
+    	<groupId>net.serenity-bdd</groupId>
+    	<artifactId>serenity-cucumber</artifactId>
+    	<version>${serenity.version}</version>
+    	<scope>compile</scope>
+	</dependency>
+	
+	<!-- Source: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+	<!-- Motor de ejecución de JUnit 5 (No se usa para escribir @Test directamente en el proyecto, ess requerido como base para que las suites funcionen). -->
+	<dependency>
+    	<groupId>org.junit.jupiter</groupId>
+    	<artifactId>junit-jupiter-engine</artifactId>
+    	<version>${junit.version}</version>
+    	<scope>test</scope>
+	</dependency>
+  </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  		<!-- ejecuta las clases que matchean los patrones **/*Test.java, **/Test*.java, **/*TestSuite.java, **/When*.java durante las fases integration-test y verify. 
+  		Aquí es donde realmente se disparan los runners -->
+			<artifactId>maven-failsafe-plugin</artifactId>
+			<version>3.1.2</version>
+			<configuration>
+				<includes>
+					<include>**/*Test.java</include>
+					<include>**/Test*.java</include>
+					<include>**/*TestSuite.java</include>
+					<include>**/When*.java</include>
+				</includes>
+				<systemPropertyVariables>
+					<webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+				</systemPropertyVariables>
+				<parallel>both</parallel>
+				<useUnlimitedThreads>true</useUnlimitedThreads>
+			</configuration>
+			<executions>
+				<execution>
+					<goals>
+						<goal>integration-test</goal>
+						<goal>verify</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+		
+		<plugin>
+		<!-- Genera el reporte HTML de Serenity (aggregate) en la fase post-integration-test, después de que Failsafe ejecuta las pruebas. 
+		<reports>single-page-html</reports> indica que el resultado es un único archivo HTML autocontenido (lo que se ve en target/site/serenity/serenity-summary.html). -->
+			<groupId>net.serenity-bdd.maven.plugins</groupId>
+			<artifactId>serenity-maven-plugin</artifactId>
+			<version>${serenity.version}</version>
+			<configuration>
+				<tags>${tags}</tags>
+				<reports>single-page-html</reports>
+			</configuration>
+			<dependencies>
+				<dependency>
+					<groupId>net.serenity-bdd</groupId>
+					<artifactId>serenity-single-page-report</artifactId>
+					<version>${serenity.version}</version>
+				</dependency>
+			</dependencies>
+			<executions>
+				<execution>
+					<id>serenity-reports</id>
+					<phase>post-integration-test</phase>
+					<goals>
+						<goal>aggregate</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>	
+  	</plugins>
+  </build>
+</project>
+```
+
 
 ## 🎓 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
 <p align="center">
