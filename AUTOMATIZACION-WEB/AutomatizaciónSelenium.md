@@ -298,5 +298,15 @@ También creamos el constructor de la clase, sin ningún contenido dentro de el.
 public WorldCupWebDriver() {		
 }
 ```
+Después creamos un método estático tipo WebDriver, donde se especificará las propiedades que deseamos que tenga el navegador, cómo por ejemplo que se maximize, que se realice algún tipo de espera cuando se estén cargando sus componentes.
+```java
+//Método estático, para aplicar las configuraciones al navegador.
+private static WebDriver aplicarConfiguracionComun(WebDriver driver) {
+	driver.manage().window().maximize();
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	return driver;
+}
+```
+La linea driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)), Es una espera Implicita, es decir, cuando se busque un elemento y no lo encuentre inmediatamente, espera e inténtalo durante un máximo de 30 segundos antes de darlo por no encontrado. Si lo encuentra a los 3 segundos, ya no seguirá realizando la espera.
 
  
