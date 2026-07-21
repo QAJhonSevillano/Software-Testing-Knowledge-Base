@@ -388,3 +388,35 @@ public class WorldCupWebDriver {
 	}
 }
 ```
+
+4. El siguiente paso es crear un nuevo paquete com.worldcupweb.paginabase, donde se creará la clase base para todo el proyecto, debido a que las páginas principales del proyecto heredarán de ella.
+
+En esta clase se realiza la referencia al driver, la reutilización de WebDriverWait, y la la inicialización de elementos anotados con @FindBy mediante PageFactory.initElements(driver, this).
+
+La línea de código this.driverWait = new WebDriverWait(driver, Duration.ofSeconds(30)) crea un Espera Explicita (Mejor práctica) hasta un máximo de 30 segundos a que elemento autilizar esté disponible para interactuar con el. Si el botón está disponible después de 2 segundos, Selenium continúa inmediatamente. No espera necesariamente los 30 segundos.
+
+La linea de código PageFactory.initElements(driver, this), está relacionada con PageFactory y el patrón Page Object Model. Significa que se inicializarán los elementos @FindBy definidos en cualquier Page Object del proyecto para poder utilizarlos con Selenium.
+Por esto esta clase es fundamental, porque todas las clases heredarán de la página base.
+
+### Archivo PaginaBase.java completo
+```java
+package com.worldcupweb.paginabase;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class PaginaBase {
+	
+	protected WebDriver driver;
+	protected WebDriverWait driverWait;
+	
+	public PaginaBase(WebDriver driver) {
+		this.driver = driver;
+		this.driverWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		PageFactory.initElements(driver, this);
+	}
+}
+```
