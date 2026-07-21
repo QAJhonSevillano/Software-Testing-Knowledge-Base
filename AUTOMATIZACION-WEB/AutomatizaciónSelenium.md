@@ -286,4 +286,10 @@ Para ello creamos un paquete en el directorio src/main/java, paquete en el cual 
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0015.png" width="800">
 </p>
+
+Como se indicó anteriormente, en esta clase definimos la constante la cual especificará los navegadores que vamos a utilizar.
+```java
+//Creamos la constante para los navegadores que vamos a utilizar
+public enum Navegador { CHROME, FIREFOX, EDGE }
+```
  
