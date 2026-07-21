@@ -309,4 +309,18 @@ private static WebDriver aplicarConfiguracionComun(WebDriver driver) {
 ```
 La linea driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)), Es una espera Implicita, es decir, cuando se busque un elemento y no lo encuentre inmediatamente, espera e inténtalo durante un máximo de 30 segundos antes de darlo por no encontrado. Si lo encuentra a los 3 segundos, ya no seguirá realizando la espera.
 
- 
+El siguiente paso es aplicar la configuración común a cada uno de los navegadores configurados.
+```java
+//Se aplica la configuración común a cada uno de los navegadores configurados
+private static WebDriver getFirefoxDriver() {
+	return aplicarConfiguracionComun(new FirefoxDriver());
+}
+		
+private static WebDriver getChromeDriver() {
+	return aplicarConfiguracionComun(new ChromeDriver());
+}
+		
+private static WebDriver getEdgeDriver() {
+	return aplicarConfiguracionComun(new EdgeDriver());
+}
+```
