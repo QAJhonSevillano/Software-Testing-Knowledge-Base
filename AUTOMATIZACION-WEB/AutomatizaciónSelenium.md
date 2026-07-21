@@ -92,7 +92,14 @@ Las dependencias que necesitemos utilizar en nuestro proyecto, la podemos descar
 
 ### Principales Builds a utilizar
 Las builds que necesitemos configurar en nuestro proyecto, para el tema de ejecución de los Test y el proceso de Reportes.
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0011.png" width="800">
+</p>
 
+Principalmente se usarán 2 builds en el proyecto base.
+1. maven-failsafe-plugin: Ejecuta las clases que matchean los patrones **/*Test.java, **/Test*.java, **/*TestSuite.java, **/When*.java durante las fases integration-test y verify. Aquí es donde realmente se disparan los runners.
+
+2. serenity-maven-plugin: genera el reporte HTML de Serenity (aggregate) en la fase post-integration-test, después de que Failsafe ejecuta las pruebas. 
 
 ## 🎓 SOCIALIZACIÓN DEL POR QUÉ USAR POSTMAN
 <p align="center">
