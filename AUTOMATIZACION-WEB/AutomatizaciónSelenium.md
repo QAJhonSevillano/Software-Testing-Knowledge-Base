@@ -337,3 +337,54 @@ public static WebDriver getDriver(Navegador navegador) {
 	return getChromeDriver();
 }
 ```
+### Archivo WorldCupWebDriver.java completo
+```java
+package com.worldcupweb.driver;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class WorldCupWebDriver {
+	
+	//Creamos la constante para los navegadores que vamos a utilizar
+	public enum Navegador { CHROME, FIREFOX, EDGE }
+	
+	//Se crea el constructor de la clase vacío
+	public WorldCupWebDriver() {		
+	}
+	
+	//Método estático, para aplicar las configuraciones al navegador.
+	private static WebDriver aplicarConfiguracionComun(WebDriver driver) {
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		return driver;
+	}
+	
+	//Se aplica la configuración común a cada uno de los navegadores configurados
+	private static WebDriver getFirefoxDriver() {
+		return aplicarConfiguracionComun(new FirefoxDriver());
+	}
+			
+	private static WebDriver getChromeDriver() {
+		return aplicarConfiguracionComun(new ChromeDriver());
+	}
+			
+	private static WebDriver getEdgeDriver() {
+		return aplicarConfiguracionComun(new EdgeDriver());
+	}
+	
+	//Obtenemos el Driver según el navegador
+	public static WebDriver getDriver(Navegador navegador) {
+		if(navegador == Navegador.FIREFOX) {
+			return getFirefoxDriver();
+		}else if(navegador == Navegador.EDGE) {
+			return getEdgeDriver();
+		}
+		return getChromeDriver();
+	}
+}
+```
