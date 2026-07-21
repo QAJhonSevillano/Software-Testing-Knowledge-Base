@@ -292,4 +292,11 @@ Como se indicó anteriormente, en esta clase definimos la constante la cual espe
 //Creamos la constante para los navegadores que vamos a utilizar
 public enum Navegador { CHROME, FIREFOX, EDGE }
 ```
+También creamos el constructor de la clase, sin ningún contenido dentro de el.
+```java
+//Se crea el constructor de la clase vacío
+public WorldCupWebDriver() {		
+}
+```
+
  
