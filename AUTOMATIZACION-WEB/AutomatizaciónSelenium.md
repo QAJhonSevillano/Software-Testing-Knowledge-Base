@@ -426,3 +426,8 @@ Por ejemplo para la funcionalidad de login, se creará un paquete denominado com
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0016.png" width="800">
 </p>
+
+Estas páginas deberán heredar la implementación que se realizó en la clase PaginaBase.java, mediante la palabra reservada extends
+```java
+public class PaginaLogin extends PaginaBase
+```
