@@ -431,3 +431,9 @@ Estas páginas deberán heredar la implementación que se realizó en la clase P
 ```java
 public class PaginaLogin extends PaginaBase
 ```
+También se deberá implementar el constructor de la clase, y su función principal es recibir un objeto WebDriver y enviarlo al constructor de la clase padre.
+```java
+public PaginaLogin(WebDriver driver) {
+	super(driver);
+}
+```
