@@ -389,7 +389,7 @@ public class WorldCupWebDriver {
 }
 ```
 
-4. El siguiente paso es crear un nuevo paquete com.worldcupweb.paginabase, donde se creará la clase base para todo el proyecto, debido a que las páginas principales del proyecto heredarán de ella.
+5. El siguiente paso es crear un nuevo paquete com.worldcupweb.paginabase en el directorio src/main/java, donde se creará la clase base para todo el proyecto, debido a que las páginas principales del proyecto heredarán de ella.
 
 En esta clase se realiza la referencia al driver, la reutilización de WebDriverWait, y la la inicialización de elementos anotados con @FindBy mediante PageFactory.initElements(driver, this).
 
@@ -420,3 +420,9 @@ public class PaginaBase {
 	}
 }
 ```
+6. En el siguiente paso se realizará la implementación de paquetes y clases por funcionalidad, en el directorio src/main/java.
+
+Por ejemplo para la funcionalidad de login, se creará un paquete denominado com.worldcupweb.login, y dentro de el se deberá crear la clase PaginaLogin.java.
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0016.png" width="800">
+</p>
