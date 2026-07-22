@@ -702,7 +702,9 @@ public class AutenticacionStep {
 9. Por último, se realizará la implementación de los Runners, (Clases que se ejecutarán, y terminarán con la palabra Test, ejemplo AutenticacionTest.java).
 
 Estas clases Runners serán clases vacías que solo llevan anotaciones, y le indicarán a JUnit 5:
+```text
 @IncludeEngines("cucumber") → usa el motor de Cucumber
 @SelectClasspathResource("features/usuarios") → rutas dónde están los .feature
 GLUE_PROPERTY_NAME → en qué paquete buscar los Steps
 PLUGIN_PROPERTY_NAME → qué reporter usar (SerenityReporter)
+```
