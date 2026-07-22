@@ -495,3 +495,6 @@ Dentro de la carpeta features, crearemos las diferentes carpetas dependiendo de 
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0020.png" width="800">
 </p>
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0021.png" width="800">
+</p>
