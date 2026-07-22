@@ -484,6 +484,14 @@ public void iniciarSesion(String usuario, String password) {
 
 7. En este punto ya podemos empezar a realizar la construccción de nuestros Features en lenguaje Gerkhin.
 Para realizar la implementación de los Features, nos debemos ubicar en la ruta src/test/resources, y ahí crearemos una carpeta denominada features.
- <p align="center">
+<p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0018.png" width="1000">
+</p>
+
+Dentro de la carpeta features, crearemos las diferentes carpetas dependiendo de los módulos, donde ubicaremos los archivos en formato .feature.
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0019.png" width="800">
+</p>
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0020.png" width="800">
 </p>
