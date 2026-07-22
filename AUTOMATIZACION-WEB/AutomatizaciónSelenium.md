@@ -463,4 +463,23 @@ public void cargarPagina()
 	driver.get("https://cmc86jstaling.pythonanywhere.com");
 }
 ```
+De aquí en adelante se implementarán los métodos o acciones necesarias que deseamos implementar en nuestra página de Login. Para nuestro ejemplo implementaremos el método iniciarSesion, el cuan recibirá como parámetro el usuario y el password del funcionario que se desea autenticar en la plataforma.
+En este mismo método realizaremos 2 acciones sobre los componentes de la clase.
+- Mediante la opción txtUsuario.clear(), limpiaremos el campo de texto por si tiene algún texto escrito (Esto se hace como buena práctica).
+- Mediante la opción txtUsuario.sendKeys(usuario), se ingresa en el campo de texto la cadena que deseamos enviar.
+- Mediante la opción btnLogin.click(), se hará la acción de click en el botón.
 
+```java
+//Método para Iniciar Sesión
+public void iniciarSesion(String usuario, String password) {
+	txtUsuario.clear();
+	txtUsuario.sendKeys(usuario);
+		
+	txtPassword.clear();
+	txtPassword.sendKeys(password);
+		
+	btnLogin.click();
+}
+```
+
+ 
