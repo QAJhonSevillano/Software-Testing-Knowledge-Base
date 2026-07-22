@@ -422,7 +422,7 @@ public class PaginaBase {
 ```
 6. En el siguiente paso se realizará la implementación de paquetes y clases por funcionalidad, en el directorio src/main/java.
 
-Por ejemplo para la funcionalidad de login, se creará un paquete denominado com.worldcupweb.login, y dentro de el se deberá crear la clase PaginaLogin.java.
+Por ejemplo para la funcionalidad de login, se creará un paquete denominado com.worldcupweb.paginalogin, y dentro de el se deberá crear la clase PaginaLogin.java.
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0016.png" width="800">
 </p>
@@ -563,3 +563,7 @@ Feature: Gestionar Login
 	| "j.sevillano" |   "admin123"   | 	  "Usuario o contraseña incorrectos."    |
 	| "j.sevillano" |  "testing123." | 	                  ""                     |
 ```
+
+8. Una vez definamos la información de nuestros features, el siguiente paso es crear los StepDefinitions (Pasos definidos en el feature), en la siguiente ruta:
+src/test/java.
+Para ello, crearemos el repectivo paquete dependiendo de la funcionalidad que necesitamos validar.
