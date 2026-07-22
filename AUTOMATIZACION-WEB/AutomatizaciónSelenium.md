@@ -443,6 +443,7 @@ En este caso localizaremos el campo usuario en el navegador.
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0017.png" width="800">
 </p>
+
 ```java
 //Encapsulamos los componentes a utilizar de la página de Login
 @FindBy(id = "login_input_usuario")
