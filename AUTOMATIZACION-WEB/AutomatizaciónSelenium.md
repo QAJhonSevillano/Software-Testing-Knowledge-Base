@@ -635,7 +635,6 @@ public void verificarInicioSesion(String mensajeEsperado) {
 
 Nota: Mediante Assertions.assertThat, Hacemos la comparación de los mensajes que nos arroja el proceso de autenticación, contra los mensajes que habiamos definido en el archivo .feature.
 
-### Archivo AutenticacionStep.java completo
 ```java
 //Cerramos el driver después de cada Test
 @After
@@ -647,6 +646,32 @@ public void cerrarDriver() {
 Después de realizar la configuración de las anotaciones, procederemos a implementar los pasos en lenguaje Java, con los pasos que implementamos en el archivo .feature.
 Aquí se usarán las mismas anotaciones en lenguaje Gerkhin que utilizamos en el archivo .feature (@Given, @When, @Then, @And etc).
 
+```java
+//Aquí se realiza la implementación de la logica Gerkhin en Lenguaje java
+@Given("cargo la página WorldCupWeb")
+public void cargarPaginaLogin() {
+	paginaLogin.cargarPagina();
+}
+	
+@And("Ingreso el usuario de autenticacion {string} y el password {string}")
+public void ingresarDatosAutenticacion(String usuario, String password) {
+	paginaLogin.datosinicioSesion(usuario, password);
+}
+	
+@When("selecciono el botón login")
+public void accionIniciarSesion() {
+	paginaLogin.accionIniciarSesion();
+}
+	
+@Then("el sistema debe mostrar el {string}")
+public void verificarInicioSesion(String mensajeEsperado) {
+	Assertions.
+		assertThat(paginaLogin.getMensaje())
+			.isEqualTo(mensajeEsperado);
+}
+```
+
+### Archivo AutenticacionStep.java completo
 ```java
 package com.worldcupweb.login.autenticar;
 
