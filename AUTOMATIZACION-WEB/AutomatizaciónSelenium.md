@@ -439,7 +439,7 @@ public PaginaLogin(WebDriver driver) {
 ```
 El siguiente paso es Encapsular todos los componentes que vamos a utilizar de la página de Login.
 Para ello desde el navegador ejecutamos la opción inspeccionar, y obtendremos los atributos de los componentes (Por lo generar es bueno utilizar los atributos id, name, o armar el xpath para localizar los elementos).
-En este caso localizaremos el campo username en el navegador.
+En este caso localizaremos el campo usuario en el navegador.
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0017.png" width="800">
 </p>
