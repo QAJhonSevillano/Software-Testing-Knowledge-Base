@@ -584,3 +584,11 @@ La anotación @Managed de Serenity es la que le indica al framework "administra 
 WebDriver driver;
 ```
 
+Posteriormente implementaremos la anotación @BeforeEach, en la cual programaremos el método de inicializarNavegador(), el cual debe ejecutarse antes de cada método de prueba @Test (Es decir se ejecutará siempre, antes de cada prueba programada). En nuestro caso le indicamos que inicialice el navegador antes de cada Test que programemos.
+
+```java
+@BeforeEach
+public void inicializarNavegador() {
+	driver = WorldCupWebDriver.getDriver(Navegador.CHROME);
+}
+```
