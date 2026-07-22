@@ -574,3 +574,13 @@ Después de crear el paquete, se procederá a crear la clase AutenticacionStep.j
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0023.png" width="800">
 </p>
+
+Los Steps conectan cada línea Gherkin con código Java real. Aquí se instancian los Page Objects (normalmente en un método anotado como @Before) y se destruye el driver al final (@After → driver.quit()). 
+
+La anotación @Managed de Serenity es la que le indica al framework "administra este WebDriver por mí" (inyecta la instancia y la limpia automáticamente si no la cierras manualmente.
+```java
+//Esta anotación @Managed de Serenity es la que le indica al framework "administra este WebDriver por mí"
+@Managed
+WebDriver driver;
+```
+
