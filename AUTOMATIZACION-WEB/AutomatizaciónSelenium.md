@@ -604,8 +604,10 @@ public void cerrarDriver() {
 	driver.quit();
 }
 ```
+
 Después de realizar la configuración de las anotaciones, procederemos a implementar los pasos en lenguaje Java, con los pasos que implementamos en el archivo .feature.
 Aquí se usarán las mismas anotaciones en lenguaje Gerkhin que utilizamos en el archivo .feature (@Given, @When, @Then, @And etc).
+
 ```java
 //Aquí se realiza la implementación de la logica Gerkhin en Lenguaje java
 @Given("cargo la página WorldCupWeb")
