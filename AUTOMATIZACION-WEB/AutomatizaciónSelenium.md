@@ -592,3 +592,16 @@ public void inicializarNavegador() {
 	driver = WorldCupWebDriver.getDriver(Navegador.CHROME);
 }
 ```
+
+Así como programamos acciones antes de iniciar cada test con @BeforeEach, también podemos programar acciones después de ejecutar cada test, con la anotación @After.
+Aquí crearemos un método cerrarDriver(), el cual nos permitirá que después de cada test cerrar el driver para no saturar la memoria del equipo.
+Para hacer el cierre del driver, se deberá implementar la función driver.quit();
+
+```java
+//Cerramos el driver después de cada Test
+@After
+public void cerrarDriver() {
+	driver.quit();
+}
+```
+
