@@ -634,3 +634,86 @@ public void verificarInicioSesion(String mensajeEsperado) {
 ```
 
 Nota: Mediante Assertions.assertThat, Hacemos la comparación de los mensajes que nos arroja el proceso de autenticación, contra los mensajes que habiamos definido en el archivo .feature.
+
+### Archivo AutenticacionStep.java completo
+```java
+//Cerramos el driver después de cada Test
+@After
+public void cerrarDriver() {
+	driver.quit();
+}
+```
+
+Después de realizar la configuración de las anotaciones, procederemos a implementar los pasos en lenguaje Java, con los pasos que implementamos en el archivo .feature.
+Aquí se usarán las mismas anotaciones en lenguaje Gerkhin que utilizamos en el archivo .feature (@Given, @When, @Then, @And etc).
+
+```java
+package com.worldcupweb.login.autenticar;
+
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.WebDriver;
+
+import com.worldcupweb.driver.WorldCupWebDriver;
+import com.worldcupweb.driver.WorldCupWebDriver.Navegador;
+import com.worldcupweb.paginalogin.PaginaLogin;
+
+import io.cucumber.java.After;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import net.serenitybdd.annotations.Managed;
+
+public class AutenticacionStep {
+	
+	//Esta anotación @Managed de Serenity es la que le indica al framework "administra este WebDriver por mí"
+	@Managed
+	WebDriver driver;
+	PaginaLogin paginaLogin;
+	
+	//Inicializamos el navegador antes de cada Test Programado
+	@BeforeEach
+	public void inicializarNavegador() {
+		driver = WorldCupWebDriver.getDriver(Navegador.CHROME);
+		paginaLogin = new PaginaLogin(driver);
+	}
+	
+	//Cerramos el driver después de cada Test
+	@After
+	public void cerrarDriver() {
+		driver.quit();
+	}
+	
+	//Aquí se realiza la implementación de la logica Gerkhin en Lenguaje java
+	@Given("cargo la página WorldCupWeb")
+	public void cargarPaginaLogin() {
+		paginaLogin.cargarPagina();
+	}
+	
+	@And("Ingreso el usuario de autenticacion {string} y el password {string}")
+	public void ingresarDatosAutenticacion(String usuario, String password) {
+		paginaLogin.datosinicioSesion(usuario, password);
+	}
+	
+	@When("selecciono el botón login")
+	public void accionIniciarSesion() {
+		paginaLogin.accionIniciarSesion();
+	}
+	
+	@Then("el sistema debe mostrar el {string}")
+	public void verificarInicioSesion(String mensajeEsperado) {
+		Assertions.
+			assertThat(paginaLogin.getMensaje())
+				.isEqualTo(mensajeEsperado);
+	}
+}
+```
+
+9. Por último, se realizará la implementación de los Runners, (Clases que se ejecutarán, y terminarán con la palabra Test, ejemplo AutenticacionTest.java).
+
+Estas clases Runners serán clases vacías que solo llevan anotaciones, y le indicarán a JUnit 5:
+@IncludeEngines("cucumber") → usa el motor de Cucumber
+@SelectClasspathResource("features/usuarios") → rutas dónde están los .feature
+GLUE_PROPERTY_NAME → en qué paquete buscar los Steps
+PLUGIN_PROPERTY_NAME → qué reporter usar (SerenityReporter)
