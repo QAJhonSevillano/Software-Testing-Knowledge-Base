@@ -455,3 +455,12 @@ private WebElement txtPassword;
 @FindBy(xpath = "//button[text()='Login']")
 private WebElement btnLogin;
 ```
+En el siguiente paso crearemos un método en el cual se realizará la carga del sitio web, mediante la opción diver.get("sitioweb").
+```java
+//Método para cargar la página web
+public void cargarPagina()
+{
+	driver.get("https://cmc86jstaling.pythonanywhere.com");
+}
+```
+
