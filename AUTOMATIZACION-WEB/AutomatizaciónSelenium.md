@@ -567,3 +567,10 @@ Feature: Gestionar Login
 8. Una vez definamos la información de nuestros features, el siguiente paso es crear los StepDefinitions (Pasos definidos en el feature), en la siguiente ruta:
 src/test/java.
 Para ello, crearemos el repectivo paquete dependiendo de la funcionalidad que necesitamos validar.
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0022.png" width="800">
+</p>
+Después de crear el paquete, se procederá a crear la clase AutenticacionStep.java, en la cual agregaremos la lógica de los pasos que definimos en el archivo login.feature
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0023.png" width="800">
+</p>
