@@ -482,6 +482,52 @@ public void iniciarSesion(String usuario, String password) {
 }
 ```
 
+### Archivo PaginaLogin.java completo
+```java
+package com.worldcup.login;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import com.worldcupweb.paginabase.PaginaBase;
+
+public class PaginaLogin extends PaginaBase {
+	
+	//Encapsulamos los componentes a utilizar de la página de Login
+	@FindBy(id = "login_input_usuario")
+	private WebElement txtUsuario;
+	
+	@FindBy(name = "password")
+	private WebElement txtPassword;
+	
+	@FindBy(xpath = "//button[text()='Login']")
+	private WebElement btnLogin;
+	
+	//Constructor de la clase
+	public PaginaLogin(WebDriver driver) {
+		super(driver);
+	}
+	
+	//Método para cargar la página web
+	public void cargarPagina()
+	{
+		driver.get("https://cmc86jstaling.pythonanywhere.com");
+	}
+	
+	//Método para Iniciar Sesión
+	public void iniciarSesion(String usuario, String password) {
+		txtUsuario.clear();
+		txtUsuario.sendKeys(usuario);
+		
+		txtPassword.clear();
+		txtPassword.sendKeys(password);
+		
+		btnLogin.click();
+	}
+}
+```
+
 7. En este punto ya podemos empezar a realizar la construccción de nuestros Features en lenguaje Gerkhin.
 Para realizar la implementación de los Features, nos debemos ubicar en la ruta src/test/resources, y ahí crearemos una carpeta denominada features.
 <p align="center">
@@ -501,6 +547,8 @@ Dentro de la carpeta features, crearemos las diferentes carpetas dependiendo de 
 
 En el archivo .feature, digitaremos en lenguaje Gerkhin el caso de prueba a validar, utilizando las palabras clave Given, When, Then, And.
 Aquí también especificaremos los datos de prueba, junto con los mensajes esperados. Cada ejemplo se consideraría como un Caso de prueba.
+
+### Archivo login.feature completo
 ```feature
 Feature: Gestionar Login
 	Scenario Outline: Proceso de autenticación
