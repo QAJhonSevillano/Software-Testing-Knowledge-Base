@@ -498,3 +498,20 @@ Dentro de la carpeta features, crearemos las diferentes carpetas dependiendo de 
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0021.png" width="800">
 </p>
+
+En el archivo .feature, digitaremos en lenguaje Gerkhin el caso de prueba a validar, utilizando las palabras clave Given, When, Then, And.
+Aquí también especificaremos los datos de prueba, junto con los mensajes esperados. Cada ejemplo se consideraría como un Caso de prueba.
+```feature
+Feature: Gestionar Login
+	Scenario Outline: Proceso de autenticación
+		Given cargo la página WorldCupWeb
+			And Ingreso el usuario de autenticacion <usuario> y el password <password>
+		When selecciono el botón login
+		Then el sistema debe mostrar el <mensajeEsperado>
+	Examples:
+	|    usuario    |    password    |               mensajeEsperado             |
+	|      ""       |   "admin123"   | 	"Usuario y contraseña son obligatorios." |
+	| "j.sevillano" |       ""       | 	"Usuario y contraseña son obligatorios." |
+	| "j.sevillano" |   "admin123"   | 	  "Usuario o contraseña incorrectos."    |
+	| "j.sevillano" |  "testing123." | 	                  ""                     |
+```
