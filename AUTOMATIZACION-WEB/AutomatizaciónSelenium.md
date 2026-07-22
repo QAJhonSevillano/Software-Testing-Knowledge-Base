@@ -709,3 +709,12 @@ Estas clases Runners serán clases vacías que solo llevan anotaciones, y le ind
 GLUE_PROPERTY_NAME → en qué paquete buscar los Steps
 PLUGIN_PROPERTY_NAME → qué reporter usar (SerenityReporter)
 ```
+
+Para ello crearemos una nueva clase en el mismo paquete donde se creó el StepDefinitions (src/test/java), con el nombre AutenticacionTest.java.
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0024.png" width="800">
+</p>
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0025.png" width="800">
+</p>
+
