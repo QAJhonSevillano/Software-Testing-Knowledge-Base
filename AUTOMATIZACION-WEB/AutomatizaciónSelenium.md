@@ -749,8 +749,8 @@ public class AutenticacionTest {
 Antes de realiza la ejecución del proyecto, se deberán actualizar las propiedades, dependencias y builds que configuramos en el archivo pom.xml del proyecto.
 Para realizar esa actualización, seleccionaremos click derecho en el proyecto, y seleccionamos la opción Maven - UpdateProject
 <p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0026.png" width="800">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0026.png" width="500">
 </p>
 <p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0027.png" width="800">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0027.png" width="500">
 </p>
