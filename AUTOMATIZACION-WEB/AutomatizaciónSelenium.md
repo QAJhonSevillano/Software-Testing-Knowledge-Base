@@ -292,10 +292,46 @@ Igualmente se define las propiedades de los diferentes navegadores que deseemos 
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0012.png" width="800">
 </p>
 
-### Archivo serenity.properties completo
+### Archivo serenity.conf completo
 ```properties
-webdriver.driver = chrome
-serenity.take.screenshot = BEFORE_AND_AFTER_EACH_STEP
+webdriver {
+    base.url = "https://cmc86jstaling.pythonanywhere.com"
+    wait.for.timeout = 10000
+}
+
+serenity {
+    project.name = "WorldCup Web - Automation Testing"
+    take.screenshot = AFTER_EACH_STEP
+}
+
+environments {
+    chrome {
+        webdriver {
+            driver = "chrome"
+            capabilities {
+                browserName = "chrome"
+            }
+        }
+    }
+
+    edge {
+        webdriver {
+            driver = "edge"
+            capabilities {
+                browserName = "MicrosoftEdge"
+            }
+        }
+    }
+
+    firefox {
+        webdriver {
+            driver = "firefox"
+            capabilities {
+                browserName = "firefox"
+            }
+        }
+    }
+}
 ```
 
 4. El siguiente paso es crear es crear la clase de la Capa del driver (WebDriver), donde se implementa como una constante estática (enum) los navegadores soportados, aplicando configuración común del navegadir (maximizar ventana, timeout implícito, etc) sin duplicar código.
