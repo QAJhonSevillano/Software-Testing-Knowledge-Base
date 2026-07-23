@@ -286,7 +286,8 @@ Principalmente se usarán 2 builds en el proyecto base.
   </build>
 </project>
 ```
-3. Se crea y se realiza la configuración del archivo serenity.properties (Donde se define el navegador por defecto y la política de capturas de pantalla (una antes y otra después de cada step de Cucumber — esto es lo que llena los reportes de evidencia visual)).
+3. Se crea y se realiza la configuración del archivo serenity.conf en la ruta src/test/resources, donde se define la URL de la página a navegar, el tiempo de las pausas implicitas para los componentes, el nombre del proyecto para visualizarlo en los reportes y la política de capturas de pantalla (una antes y otra después de cada step de Cucumber — esto es lo que llena los reportes de evidencia visual)).
+Igualmente se define las propiedades de los diferentes navegadores que deseemos utilizar. 
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0012.png" width="800">
 </p>
