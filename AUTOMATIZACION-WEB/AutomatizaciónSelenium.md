@@ -114,20 +114,31 @@ Principalmente se usarán 2 builds en el proyecto base.
   <properties>
   	<maven.compiler.target>21</maven.compiler.target>
   	<maven.compiler.source>21</maven.compiler.source>
-  	<junit.version>6.1.0</junit.version>
-  	<junit-platform-suite.version>6.1.1</junit-platform-suite.version>
+  	<junit.version>6.1.1</junit.version>
   	<cucumber-junit-platform-engine.version>7.34.4</cucumber-junit-platform-engine.version>
   	<assertj.version>3.27.7</assertj.version>
   	<selenium.version>4.45.0</selenium.version>
   	<serenity.version>5.3.11</serenity.version>	
   </properties>
   
+  <!-- El BOM se encargará de seleccionar versiones compatibles entre sí, para evitar conflicto de versiones -->
+  <dependencyManagement>
+  	<dependencies>
+    	<dependency>
+        	<groupId>org.junit</groupId>
+            <artifactId>junit-bom</artifactId>
+            <version>${junit.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
   <dependencies>
   	<!-- Source: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 	<dependency>
     	<groupId>org.junit.jupiter</groupId>
     	<artifactId>junit-jupiter-api</artifactId>
-    	<version>${junit.version}</version>
     	<scope>test</scope>
 	</dependency>
 	
@@ -135,7 +146,6 @@ Principalmente se usarán 2 builds en el proyecto base.
 	<dependency>
     	<groupId>org.junit.platform</groupId>
     	<artifactId>junit-platform-suite</artifactId>
-    	<version>${junit-platform-suite.version}</version>
     	<scope>test</scope>
 	</dependency>
 	
@@ -197,7 +207,6 @@ Principalmente se usarán 2 builds en el proyecto base.
 	<dependency>
     	<groupId>org.junit.jupiter</groupId>
     	<artifactId>junit-jupiter-engine</artifactId>
-    	<version>${junit.version}</version>
     	<scope>test</scope>
 	</dependency>
   </dependencies>
@@ -230,6 +239,20 @@ Principalmente se usarán 2 builds en el proyecto base.
 					</goals>
 				</execution>
 			</executions>
+		</plugin>
+		
+		<!-- Excluye la ejecución surefire, para que no se ejecute doble vez cada vez que ejecute el maven verify -->
+		<plugin>
+    		<groupId>org.apache.maven.plugins</groupId>
+    			<artifactId>maven-surefire-plugin</artifactId>
+    				<version>3.2.5</version>
+    					<configuration>
+        					<excludes>
+            					<exclude>**/*Test.java</exclude>
+            					<exclude>**/Test*.java</exclude>
+            					<exclude>**/*TestSuite.java</exclude>
+        					</excludes>
+    					</configuration>
 		</plugin>
 		
 		<plugin>
