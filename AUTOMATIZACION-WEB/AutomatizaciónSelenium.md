@@ -752,5 +752,5 @@ Para realizar esa actualización, seleccionaremos click derecho en el proyecto, 
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0026.png" width="250">
 </p>
 <p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0027.png" width="350">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0027.png" width="400">
 </p>
