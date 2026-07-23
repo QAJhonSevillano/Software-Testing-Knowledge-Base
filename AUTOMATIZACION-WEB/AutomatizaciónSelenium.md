@@ -754,3 +754,11 @@ Para realizar esa actualización, seleccionaremos click derecho en el proyecto, 
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0027.png" width="400">
 </p>
+
+Luego seleccionamos la opción Force Update of Snapshots/Releases, seleccionamos el botón OK, y en nuestro proyecto se tendrá que visualizar la opción del Source y el Target que configuramos en el archivo pom.xml.
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0028.png" width="400">
+</p>
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0029.png" width="250">
+</p>
