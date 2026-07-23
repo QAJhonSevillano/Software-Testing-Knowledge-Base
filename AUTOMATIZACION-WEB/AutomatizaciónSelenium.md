@@ -718,3 +718,39 @@ Para ello crearemos una nueva clase en el mismo paquete donde se creó el StepDe
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0025.png" width="800">
 </p>
 
+### Archivo AutenticacionTest.java completo
+```java
+package com.worldcupweb.login.autenticar;
+
+import org.junit.platform.suite.api.ConfigurationParameter;
+import org.junit.platform.suite.api.IncludeEngines;
+import org.junit.platform.suite.api.SelectClasspathResource;
+import org.junit.platform.suite.api.Suite;
+
+import io.cucumber.core.options.Constants;
+
+@Suite
+@IncludeEngines("cucumber") //Indica quien va a tener el control de ja ejecución: Cucumber
+@SelectClasspathResource("features/login") //Indica donde están ubicados los Features
+@ConfigurationParameter(
+		key = Constants.GLUE_PROPERTY_NAME,
+		value = "com.worldcupweb.login.autenticar") //Indicamos en que paquete se deben buscar los Steps
+@ConfigurationParameter(
+		key = Constants.PLUGIN_PROPERTY_NAME,
+		value = "io.cucumber.core.plugin.SerenityReporter,pretty") //Indicamos que cree el reporte con Serenity
+
+public class AutenticacionTest {
+	
+}
+```
+
+## NOTA IMPORTANTE.
+
+Antes de realiza la ejecución del proyecto, se deberán actualizar las propiedades, dependencias y builds que configuramos en el archivo pom.xml del proyecto.
+Para realizar esa actualización, seleccionaremos click derecho en el proyecto, y seleccionamos la opción Maven - UpdateProject
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0026.png" width="800">
+</p>
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0027.png" width="800">
+</p>
