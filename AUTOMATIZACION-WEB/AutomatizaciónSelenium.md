@@ -539,7 +539,7 @@ public class PaginaLogin extends PaginaBase {
 }
 ```
 
-7. En este punto ya podemos empezar a realizar la construccción de nuestros Features en lenguaje Gerkhin.
+6. En este punto ya podemos empezar a realizar la construccción de nuestros Features en lenguaje Gerkhin.
 Para realizar la implementación de los Features, nos debemos ubicar en la ruta src/test/resources, y ahí crearemos una carpeta denominada features.
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0018.png" width="1000">
@@ -569,13 +569,13 @@ Feature: Gestionar Login
 		Then el sistema debe mostrar el <mensajeEsperado>
 	Examples:
 	|    usuario    |    password    |               mensajeEsperado             |
-	|      ""       |   "admin123"   | 	"Usuario y contraseña son obligatorios." |
-	| "j.sevillano" |       ""       | 	"Usuario y contraseña son obligatorios." |
+	|      ""       |   "admin123"   | 	          "Completa este campo"          |
+	| "j.sevillano" |       ""       | 	          "Completa este campo"          |
 	| "j.sevillano" |   "admin123"   | 	  "Usuario o contraseña incorrectos."    |
-	| "j.sevillano" |  "testing123." | 	                  ""                     |
+	| "j.sevillano" |  "testing123." | 	 "Bienvenido, JHON STALING SEVILLANO"    |
 ```
 
-8. Una vez definamos la información de nuestros features, el siguiente paso es crear los StepDefinitions (Pasos definidos en el feature), en la siguiente ruta:
+7. Una vez definamos la información de nuestros features, el siguiente paso es crear los StepDefinitions (Pasos definidos en el feature), en la siguiente ruta:
 src/test/java.
 Para ello, crearemos el repectivo paquete dependiendo de la funcionalidad que necesitamos validar.
 <p align="center">
