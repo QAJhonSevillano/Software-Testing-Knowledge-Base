@@ -420,67 +420,121 @@ public void cargarPagina() {
 	abrirPagina();
 }
 ```
-De aquí en adelante se implementarán los métodos o acciones necesarias que deseamos implementar en nuestra página de Login. Para nuestro ejemplo implementaremos el método iniciarSesion, el cuan recibirá como parámetro el usuario y el password del funcionario que se desea autenticar en la plataforma.
-En este mismo método realizaremos 2 acciones sobre los componentes de la clase.
-- Mediante la opción txtUsuario.clear(), limpiaremos el campo de texto por si tiene algún texto escrito (Esto se hace como buena práctica).
-- Mediante la opción txtUsuario.sendKeys(usuario), se ingresa en el campo de texto la cadena que deseamos enviar.
-- Mediante la opción btnLogin.click(), se hará la acción de click en el botón.
+De aquí en adelante se implementarán los métodos o acciones necesarias que deseamos implementar en nuestra página de Login. Para nuestro ejemplo implementaremos los métodos datosInicioSesion(), el cual recibirá como parámetro el usuario y el password del funcionario que se desea autenticar en la plataforma, y el método accionIniciarSesion(), el cual dispara la acción de click del botón.
+En el primer método realizaremos 2 acciones sobre los componentes de la clase.
+- Mediante la opción waitUntilVisible().type(usuario), especificaremos la pausa implicita que declaramos en serenity.config, e igualmente le pasamos el texto que recibe el método con la función type().
+En el segundo método se realizarán 2 acciones sobre el componente botón.
+- Mediante la opción waitUntilClickable().click(), primero se realizará la pausa implicita hasta que el botón sea clicable y luego se hará la acción de click en el botón mediante click().
 
 ```java
-//Método para Iniciar Sesión
-public void iniciarSesion(String usuario, String password) {
-	txtUsuario.clear();
-	txtUsuario.sendKeys(usuario);
+//Método para enviar los datos de Inicio de sesión
+public void datosinicioSesion(String usuario, String password) {
+	usuarioVacio = usuario.isEmpty();
+	passwordVacio = password.isEmpty();
 		
-	txtPassword.clear();
-	txtPassword.sendKeys(password);
-		
-	btnLogin.click();
+	//Con type() realizamos la función similar a sendKeys() 
+	txtUsuario.waitUntilVisible().type(usuario);
+	txtPassword.waitUntilVisible().type(password);
+}
+
+//Metodo que acciona el botón Login
+public void accionIniciarSesion() {
+	btnLogin.waitUntilClickable().click();
+}
+```
+
+Por ultimo realizamos la comparación de los mensajes obtenidos en la página, mediante la implementación del método getMensaje().
+```java
+//Validación de campos vacios del formulario de autenticación
+public String getMensaje() {
+	String mensajeRetornado = "";
+	if (usuarioVacio || passwordVacio) {
+		if (usuarioVacio) 
+			mensajeRetornado = txtUsuario.getDomProperty("validationMessage");
+		if (passwordVacio) 
+			mensajeRetornado = txtPassword.getDomProperty("validationMessage");
+	}
+	else 
+		if (getDriver().getCurrentUrl().contains("/menu"))
+			mensajeRetornado = lblMensajeBienvenida.getText();
+		else
+			mensajeRetornado = lblMensajeError.getText();
+	return mensajeRetornado;
 }
 ```
 
 ### Archivo PaginaLogin.java completo
 ```java
-package com.worldcup.login;
+package com.worldcupweb.paginalogin;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.worldcupweb.paginabase.PaginaBase;
 
+import net.serenitybdd.core.pages.WebElementFacade;
+
 public class PaginaLogin extends PaginaBase {
+	
+	private boolean usuarioVacio;
+	private boolean passwordVacio;
 	
 	//Encapsulamos los componentes a utilizar de la página de Login
 	@FindBy(id = "login_input_usuario")
-	private WebElement txtUsuario;
+	private WebElementFacade txtUsuario;
 	
 	@FindBy(name = "password")
-	private WebElement txtPassword;
+	private WebElementFacade txtPassword;
 	
-	@FindBy(xpath = "//button[text()='Login']")
-	private WebElement btnLogin;
+	@FindBy(xpath = "//button[normalize-space()='Login']")
+	private WebElementFacade btnLogin;
+	
+	@FindBy(id = "login_msg_error")
+	private WebElementFacade lblMensajeError;
+	
+	@FindBy(className = "panel-usuario")
+	private WebElementFacade lblMensajeBienvenida;
 	
 	//Constructor de la clase
 	public PaginaLogin(WebDriver driver) {
 		super(driver);
 	}
 	
-	//Método para cargar la página web
-	public void cargarPagina()
-	{
-		driver.get("https://cmc86jstaling.pythonanywhere.com");
+	//Método de carga la página de autenticación
+	public void cargarPagina() {
+	    abrirPagina();
 	}
 	
-	//Método para Iniciar Sesión
-	public void iniciarSesion(String usuario, String password) {
-		txtUsuario.clear();
-		txtUsuario.sendKeys(usuario);
+	//Método para enviar los datos de Inicio de sesión
+	public void datosinicioSesion(String usuario, String password) {
+		usuarioVacio = usuario.isEmpty();
+	    passwordVacio = password.isEmpty();
 		
-		txtPassword.clear();
-		txtPassword.sendKeys(password);
-		
-		btnLogin.click();
+	    //Con type() realizamos la función similar a sendKeys() 
+	    txtUsuario.waitUntilVisible().type(usuario);
+	    txtPassword.waitUntilVisible().type(password);
+	}
+	
+	//Metodo que acciona el botón Login
+	public void accionIniciarSesion() {
+		btnLogin.waitUntilClickable().click();
+	}
+	
+	//Validación de campos vacios del formulario de autenticación
+	public String getMensaje() {
+		String mensajeRetornado = "";
+		if (usuarioVacio || passwordVacio) {
+			if (usuarioVacio) 
+			    mensajeRetornado = txtUsuario.getDomProperty("validationMessage");
+			if (passwordVacio) 
+				mensajeRetornado = txtPassword.getDomProperty("validationMessage");
+	    }
+		else 
+			if (getDriver().getCurrentUrl().contains("/menu"))
+				mensajeRetornado = lblMensajeBienvenida.getText();
+			else
+				mensajeRetornado = lblMensajeError.getText();
+		return mensajeRetornado;
 	}
 }
 ```
