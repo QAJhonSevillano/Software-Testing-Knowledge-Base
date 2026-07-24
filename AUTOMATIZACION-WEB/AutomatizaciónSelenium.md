@@ -334,153 +334,45 @@ environments {
 }
 ```
 
-4. El siguiente paso es crear es crear la clase de la Capa del driver (WebDriver), donde se implementa como una constante estática (enum) los navegadores soportados, aplicando configuración común del navegadir (maximizar ventana, timeout implícito, etc) sin duplicar código.
+4. El siguiente paso es crear un nuevo paquete com.worldcupweb.paginabase en el directorio src/main/java, donde se creará la clase base para todo el proyecto, debido a que las páginas principales del proyecto heredarán de ella.
 
-Para ello creamos un paquete en el directorio src/main/java, paquete en el cual crearemos la clase de la capa del driver.
-<p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0013.png" width="800">
-</p>
-<p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0014.png" width="800">
-</p>
-<p align="center">
-  <img src="../assets/selenium/AUTOMATIZACION-WEB-0015.png" width="800">
-</p>
+Esta clase heredará de PageObject, utilizando las funcionalidades que Serenity proporciona en PageObject. 
 
-Como se indicó anteriormente, en esta clase definimos la constante la cual especificará los navegadores que vamos a utilizar.
-```java
-//Creamos la constante para los navegadores que vamos a utilizar
-public enum Navegador { CHROME, FIREFOX, EDGE }
-```
-También creamos el constructor de la clase, sin ningún contenido dentro de el.
-```java
-//Se crea el constructor de la clase vacío
-public WorldCupWebDriver() {		
-}
-```
-Después creamos un método estático tipo WebDriver, donde se especificará las propiedades que deseamos que tenga el navegador, cómo por ejemplo que se maximize, que se realice algún tipo de espera cuando se estén cargando sus componentes.
-```java
-//Método estático, para aplicar las configuraciones al navegador.
-private static WebDriver aplicarConfiguracionComun(WebDriver driver) {
-	driver.manage().window().maximize();
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-	return driver;
-}
-```
-La linea driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)), Es una espera Implicita, es decir, cuando se busque un elemento y no lo encuentre inmediatamente, espera e inténtalo durante un máximo de 30 segundos antes de darlo por no encontrado. Si lo encuentra a los 3 segundos, ya no seguirá realizando la espera.
+El método obtenerBaseUrl() se encargá de obtener la URL base configurada para las pruebas (En el archivo serenity.conf).
 
-El siguiente paso es aplicar la configuración común a cada uno de los navegadores configurados.
-```java
-//Se aplica la configuración común a cada uno de los navegadores configurados
-private static WebDriver getFirefoxDriver() {
-	return aplicarConfiguracionComun(new FirefoxDriver());
-}
-		
-private static WebDriver getChromeDriver() {
-	return aplicarConfiguracionComun(new ChromeDriver());
-}
-		
-private static WebDriver getEdgeDriver() {
-	return aplicarConfiguracionComun(new EdgeDriver());
-}
-```
-
-Por último en la clase, obtenemos el driver según el navegador que vamos a utilizar
-```java
-//Obtenemos el Driver según el navegador
-public static WebDriver getDriver(Navegador navegador) {
-	if(navegador == Navegador.FIREFOX) {
-		return getFirefoxDriver();
-	}else if(navegador == Navegador.EDGE) {
-		return getEdgeDriver();
-	}
-	return getChromeDriver();
-}
-```
-### Archivo WorldCupWebDriver.java completo
-```java
-package com.worldcupweb.driver;
-
-import java.time.Duration;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-public class WorldCupWebDriver {
-	
-	//Creamos la constante para los navegadores que vamos a utilizar
-	public enum Navegador { CHROME, FIREFOX, EDGE }
-	
-	//Se crea el constructor de la clase vacío
-	public WorldCupWebDriver() {		
-	}
-	
-	//Método estático, para aplicar las configuraciones al navegador.
-	private static WebDriver aplicarConfiguracionComun(WebDriver driver) {
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		return driver;
-	}
-	
-	//Se aplica la configuración común a cada uno de los navegadores configurados
-	private static WebDriver getFirefoxDriver() {
-		return aplicarConfiguracionComun(new FirefoxDriver());
-	}
-			
-	private static WebDriver getChromeDriver() {
-		return aplicarConfiguracionComun(new ChromeDriver());
-	}
-			
-	private static WebDriver getEdgeDriver() {
-		return aplicarConfiguracionComun(new EdgeDriver());
-	}
-	
-	//Obtenemos el Driver según el navegador
-	public static WebDriver getDriver(Navegador navegador) {
-		if(navegador == Navegador.FIREFOX) {
-			return getFirefoxDriver();
-		}else if(navegador == Navegador.EDGE) {
-			return getEdgeDriver();
-		}
-		return getChromeDriver();
-	}
-}
-```
-
-5. El siguiente paso es crear un nuevo paquete com.worldcupweb.paginabase en el directorio src/main/java, donde se creará la clase base para todo el proyecto, debido a que las páginas principales del proyecto heredarán de ella.
-
-En esta clase se realiza la referencia al driver, la reutilización de WebDriverWait, y la la inicialización de elementos anotados con @FindBy mediante PageFactory.initElements(driver, this).
-
-La línea de código this.driverWait = new WebDriverWait(driver, Duration.ofSeconds(30)) crea un Espera Explicita (Mejor práctica) hasta un máximo de 30 segundos a que elemento autilizar esté disponible para interactuar con el. Si el botón está disponible después de 2 segundos, Selenium continúa inmediatamente. No espera necesariamente los 30 segundos.
-
-La linea de código PageFactory.initElements(driver, this), está relacionada con PageFactory y el patrón Page Object Model. Significa que se inicializarán los elementos @FindBy definidos en cualquier Page Object del proyecto para poder utilizarlos con Selenium.
-Por esto esta clase es fundamental, porque todas las clases heredarán de la página base.
+El método abrirPagina() se encargá ejecutar el navegador con la URL que obtuvimos en el método obtenerBaseUrl().
 
 ### Archivo PaginaBase.java completo
 ```java
 package com.worldcupweb.paginabase;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class PaginaBase {
-	
-	protected WebDriver driver;
-	protected WebDriverWait driverWait;
+import net.serenitybdd.core.di.SerenityInfrastructure;
+import net.serenitybdd.core.pages.PageObject;
+import net.thucydides.model.util.EnvironmentVariables;
+
+public class PaginaBase extends PageObject {
 	
 	public PaginaBase(WebDriver driver) {
-		this.driver = driver;
-		this.driverWait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		PageFactory.initElements(driver, this);
+		super(driver);
+	}
+	
+	//Método para cargar la página web
+	protected String obtenerBaseUrl() {
+		//APIs de configuración de Serenity, para obtener la URL del proyecto del archivo serenity.properties
+		EnvironmentVariables environmentVariables = SerenityInfrastructure.getEnvironmentVariables();
+        return environmentVariables.getProperty("webdriver.base.url");
+    }
+	
+	//Método de la página base para obtener la página que deseamos ejecutar.
+	protected void abrirPagina() {
+		getDriver().get(obtenerBaseUrl());
 	}
 }
 ```
-6. En el siguiente paso se realizará la implementación de paquetes y clases por funcionalidad, en el directorio src/main/java.
+
+5. En el siguiente paso se realizará la implementación de paquetes y clases por funcionalidad, en el directorio src/main/java.
 
 Por ejemplo para la funcionalidad de login, se creará un paquete denominado com.worldcupweb.paginalogin, y dentro de el se deberá crear la clase PaginaLogin.java.
 <p align="center">
@@ -491,7 +383,7 @@ Estas páginas deberán heredar la implementación que se realizó en la clase P
 ```java
 public class PaginaLogin extends PaginaBase
 ```
-También se deberá implementar el constructor de la clase, y su función principal es recibir un objeto WebDriver y enviarlo al constructor de la clase padre.
+También se deberá implementar el constructor de la clase, y su función principal es recibir una instancia del navegador (WebDriver) y pasarla a la clase padre mediante super(driver).
 ```java
 public PaginaLogin(WebDriver driver) {
 	super(driver);
