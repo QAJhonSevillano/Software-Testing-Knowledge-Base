@@ -762,3 +762,9 @@ Una vez tengamos implementada la lógica descrita en este documento, ya podemos 
 </p>
 
 ### Ejecución del proyecto.
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0031.png" width="800">
+</p>
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0032.png" width="800">
+</p>
