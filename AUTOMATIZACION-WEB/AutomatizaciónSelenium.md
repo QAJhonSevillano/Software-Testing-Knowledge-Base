@@ -586,34 +586,24 @@ Después de crear el paquete, se procederá a crear la clase AutenticacionStep.j
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0023.png" width="800">
 </p>
 
-Los Steps conectan cada línea Gherkin con código Java real. Aquí se instancian los Page Objects (normalmente en un método anotado como @Before) y se destruye el driver al final (@After → driver.quit()). 
+Los Steps conectan cada línea Gherkin con código Java real. Aquí se instancian los Page Objects (normalmente en un método anotado como @Before). 
 
-La anotación @Managed de Serenity es la que le indica al framework "administra este WebDriver por mí" (inyecta la instancia y la limpia automáticamente si no la cierras manualmente.
+La anotación @Managed de Serenity es la que le indica al framework "administra este WebDriver por mí" (inyecta la instancia y la limpia automáticamente si no la cierras manualmente, e igualmente instancia la Pagina del Login previamente implementada.
 ```java
 //Esta anotación @Managed de Serenity es la que le indica al framework "administra este WebDriver por mí"
 @Managed
 WebDriver driver;
+PaginaLogin paginaLogin;
 ```
 
-Posteriormente implementaremos la anotación @BeforeEach, en la cual programaremos el método de inicializarNavegador(), el cual debe ejecutarse antes de cada método de prueba @Test (Es decir se ejecutará siempre, antes de cada prueba programada). En nuestro caso le indicamos que inicialice el navegador antes de cada Test que programemos.
+Posteriormente implementaremos la anotación @Before, en la cual programaremos el método de inicializarNavegador(), el cual debe ejecutarse antes de cada método de prueba @Test (Es decir se ejecutará siempre, antes de cada prueba programada). En nuestro caso le indicamos que inicialice el navegador antes de cada Test que programemos.
 
 ```java
-@BeforeEach
+@Before
 public void inicializarNavegador() {
-	driver = WorldCupWebDriver.getDriver(Navegador.CHROME);
-}
-```
-
-Así como programamos acciones antes de iniciar cada test con @BeforeEach, también podemos programar acciones después de ejecutar cada test, con la anotación @After.
-Aquí crearemos un método cerrarDriver(), el cual nos permitirá que después de cada test cerrar el driver para no saturar la memoria del equipo.
-Para hacer el cierre del driver, se deberá implementar la función driver.quit();
-
-```java
-//Cerramos el driver después de cada Test
-@After
-public void cerrarDriver() {
-	driver.quit();
-}
+	driver.manage().window().maximize();
+	paginaLogin = new PaginaLogin(driver);
+}	
 ```
 
 Después de realizar la configuración de las anotaciones, procederemos a implementar los pasos en lenguaje Java, con los pasos que implementamos en el archivo .feature.
@@ -628,7 +618,7 @@ public void cargarPaginaLogin() {
 	
 @And("Ingreso el usuario de autenticacion {string} y el password {string}")
 public void ingresarDatosAutenticacion(String usuario, String password) {
-	paginaLogin.datosinicioSesion(usuario, password);
+	paginaLogin.datosInicioSesion(usuario, password);
 }
 	
 @When("selecciono el botón login")
@@ -651,14 +641,11 @@ Nota: Mediante Assertions.assertThat, Hacemos la comparación de los mensajes qu
 package com.worldcupweb.login.autenticar;
 
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 
-import com.worldcupweb.driver.WorldCupWebDriver;
-import com.worldcupweb.driver.WorldCupWebDriver.Navegador;
 import com.worldcupweb.paginalogin.PaginaLogin;
 
-import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -673,18 +660,12 @@ public class AutenticacionStep {
 	PaginaLogin paginaLogin;
 	
 	//Inicializamos el navegador antes de cada Test Programado
-	@BeforeEach
+	@Before
 	public void inicializarNavegador() {
-		driver = WorldCupWebDriver.getDriver(Navegador.CHROME);
+		driver.manage().window().maximize();
 		paginaLogin = new PaginaLogin(driver);
 	}
-	
-	//Cerramos el driver después de cada Test
-	@After
-	public void cerrarDriver() {
-		driver.quit();
-	}
-	
+		
 	//Aquí se realiza la implementación de la logica Gerkhin en Lenguaje java
 	@Given("cargo la página WorldCupWeb")
 	public void cargarPaginaLogin() {
@@ -702,7 +683,7 @@ public class AutenticacionStep {
 	}
 	
 	@Then("el sistema debe mostrar el {string}")
-	public void verificarInicioSesion(String mensajeEsperado) {
+	public void verificarInicioSesion(String mensajeEsperado) throws InterruptedException {
 		Assertions.
 			assertThat(paginaLogin.getMensaje())
 				.isEqualTo(mensajeEsperado);
@@ -773,3 +754,11 @@ Luego seleccionamos la opción Force Update of Snapshots/Releases, seleccionamos
 <p align="center">
   <img src="../assets/selenium/AUTOMATIZACION-WEB-0029.png" width="800">
 </p>
+
+Una vez tengamos implementada la lógica descrita en este documento, ya podemos ejecutar nuestro proyecto de automatización, dando click derecho sobre el proyecto y seleccionando la opción Run As - Maven verify
+
+<p align="center">
+  <img src="../assets/selenium/AUTOMATIZACION-WEB-0030.png" width="800">
+</p>
+
+### Ejecución del proyecto.
