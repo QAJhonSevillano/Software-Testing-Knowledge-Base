@@ -389,7 +389,7 @@ public PaginaLogin(WebDriver driver) {
 	super(driver);
 }
 ```
-El siguiente paso es Encapsular todos los componentes que vamos a utilizar de la página de Login.
+El siguiente paso es Encapsular todos los componentes que vamos a utilizar de la página de Login, mediante la clase WebElementFacade (WebElementFacade es una clase clave del framework de automatización de pruebas Serenity BDD).
 Para ello desde el navegador ejecutamos la opción inspeccionar, y obtendremos los atributos de los componentes (Por lo generar es bueno utilizar los atributos id, name, o armar el xpath para localizar los elementos).
 En este caso localizaremos el campo usuario en el navegador.
 <p align="center">
@@ -399,13 +399,19 @@ En este caso localizaremos el campo usuario en el navegador.
 ```java
 //Encapsulamos los componentes a utilizar de la página de Login
 @FindBy(id = "login_input_usuario")
-private WebElement txtUsuario;
+private WebElementFacade txtUsuario;
 	
 @FindBy(name = "password")
-private WebElement txtPassword;
+private WebElementFacade txtPassword;
 	
-@FindBy(xpath = "//button[text()='Login']")
-private WebElement btnLogin;
+@FindBy(xpath = "//button[normalize-space()='Login']")
+private WebElementFacade btnLogin;
+	
+@FindBy(id = "login_msg_error")
+private WebElementFacade lblMensajeError;
+	
+@FindBy(className = "panel-usuario")
+private WebElementFacade lblMensajeBienvenida;
 ```
 En el siguiente paso crearemos un método en el cual se realizará la carga del sitio web, mediante la opción driver.get("sitioweb").
 ```java
