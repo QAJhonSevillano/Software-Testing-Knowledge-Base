@@ -413,12 +413,11 @@ private WebElementFacade lblMensajeError;
 @FindBy(className = "panel-usuario")
 private WebElementFacade lblMensajeBienvenida;
 ```
-En el siguiente paso crearemos un método en el cual se realizará la carga del sitio web, mediante la opción driver.get("sitioweb").
+En el siguiente paso crearemos un método en el cual se realizará la carga del sitio web, mediante la llamada del método abrirPagina() de la clase padre PaginaBase.java.
 ```java
-//Método para cargar la página web
-public void cargarPagina()
-{
-	driver.get("https://cmc86jstaling.pythonanywhere.com");
+//Método de carga la página de autenticación
+public void cargarPagina() {
+	abrirPagina();
 }
 ```
 De aquí en adelante se implementarán los métodos o acciones necesarias que deseamos implementar en nuestra página de Login. Para nuestro ejemplo implementaremos el método iniciarSesion, el cuan recibirá como parámetro el usuario y el password del funcionario que se desea autenticar en la plataforma.
